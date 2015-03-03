@@ -1,4 +1,6 @@
 # kyra
+
+Small logging libray I made for my own use.
     
 ## Usage:
 
