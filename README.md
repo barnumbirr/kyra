@@ -1,4 +1,4 @@
-<h1><img src="https://raw.githubusercontent.com/c0ding/kyra/master/doc/kyra.png" height=55 alt="kyra" title="kyra">kyra</h1>
+<h1><img src="https://raw.githubusercontent.com/c0ding/kyra/master/doc/kyra.png" height=65 alt="kyra" title="kyra">kyra</h1>
 
 Small logging library I made for my own use.
     
