@@ -1,6 +1,6 @@
-# kyra
+<h1><img src="https://raw.githubusercontent.com/c0ding/kyra/master/doc/kyra.png" height=80 alt="kyra" title="kyra">kyra</h1>
 
-Small logging libray I made for my own use.
+Small logging library I made for my own use.
     
 ## Usage:
 
@@ -11,14 +11,14 @@ Small logging libray I made for my own use.
 from kyra import Logger
 from kyra import loggable
 
-log = Logger()
-
 @loggable
 def sum(a, b):
-  return a+b
+   return a+b
 sum(2, 4)
 
-print log.info('This tests the ERROR logging call.')
+log = Logger()
+
+print log.error('This tests the ERROR logging call.')
 
 ```
 
