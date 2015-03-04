@@ -3,6 +3,12 @@
 
 from datetime import datetime
 
+__title__ = 'kyra'
+__version__ = '0.0.1'
+__author__ = '@c0ding'
+__repo__ = 'https://github.com/c0ding/kyra'
+__license__ = 'Apache v2.0 License'
+
 class Logger():
 
     def timestamp():
@@ -14,7 +20,7 @@ class Logger():
     WARNING = '{0}{1}'.format(timestamp(), '\033[93m[WARNING]\033[0m :: ')
     INFO = '{0}{1}'.format(timestamp(), '\033[94m[INFO]\033[0m :: ')
     NORMAL = '{0}{1}'.format(timestamp(), '\033[0m[NORMAL]\033[0m :: ')
-    GOOD = '{0}{1}'.format(timestamp(), '\033[92m[GOOD]\033[0m :: ', '%s')
+    GOOD = '{0}{1}'.format(timestamp(), '\033[92m[GOOD]\033[0m :: ')
     FUNCTION = '{0}{1}{2}'.format(timestamp(), '\033[95m[FUNCTION]\033[0m', ' :: ')
 
     @classmethod
