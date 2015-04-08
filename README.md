@@ -3,7 +3,17 @@
 [![PyPi Version](http://img.shields.io/pypi/v/kyra.svg)](https://pypi.python.org/pypi/kyra/)   [![Downloads](http://img.shields.io/pypi/dm/kyra.svg)](https://pypi.python.org/pypi/kyra/)
 [![Code Health](https://landscape.io/github/c0ding/kyra/master/landscape.svg)](https://landscape.io/github/c0ding/kyra/master)
 
-Small logging library I made for my own use.
+**kyra** is a small logging library written in Python I made for my own use.
+
+## Installation:
+
+From source use
+
+      $ python setup.py install
+
+or install from PyPi
+
+      $ pip install kyra
     
 ## Usage:
 
