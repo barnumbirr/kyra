@@ -4,48 +4,49 @@
 from datetime import datetime
 
 __title__ = 'kyra'
-__version__ = '0.0.1'
-__author__ = '@c0ding'
+__version__ = '0.1'
+__author__ = 'Martin Simon <me@martinsimon.me>'
 __repo__ = 'https://github.com/c0ding/kyra'
 __license__ = 'Apache v2.0 License'
 
-class Logger():
+class Logger(object):
 
+    ERROR = '{0}'.format('\033[91m[ERROR]\033[0m :: ')
+    WARNING = '{0}'.format('\033[93m[WARNING]\033[0m :: ')
+    INFO = '{0}'.format('\033[94m[INFO]\033[0m :: ')
+    NORMAL = '{0}'.format('\033[0m[NORMAL]\033[0m :: ')
+    GOOD = '{0}'.format('\033[92m[GOOD]\033[0m :: ')
+    FUNCTION = '{0}{1}'.format('\033[95m[FUNCTION]\033[0m', ' :: ')
+    
+    @staticmethod
     def timestamp():
         time_now = datetime.now()
         time_ordered = datetime.strftime(time_now, '%d-%m-%Y %H:%M:%S')
         return('{0}{1}'.format(time_ordered, ' :: '))
 
-    ERROR = '{0}{1}'.format(timestamp(), '\033[91m[ERROR]\033[0m :: ')
-    WARNING = '{0}{1}'.format(timestamp(), '\033[93m[WARNING]\033[0m :: ')
-    INFO = '{0}{1}'.format(timestamp(), '\033[94m[INFO]\033[0m :: ')
-    NORMAL = '{0}{1}'.format(timestamp(), '\033[0m[NORMAL]\033[0m :: ')
-    GOOD = '{0}{1}'.format(timestamp(), '\033[92m[GOOD]\033[0m :: ')
-    FUNCTION = '{0}{1}{2}'.format(timestamp(), '\033[95m[FUNCTION]\033[0m', ' :: ')
-
     @classmethod
     def function_call(self, fn, retval, *args):
-        print('{0}{1}{2}{3}{4}'.format(self.FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+        print('{0}{1}{2}{3}{4}{5}'.format(self.timestamp(), self.FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
 
     @classmethod
     def error(self, text):
-        return('{0}{1}'.format(self.ERROR, text))
+        return('{0}{1}{2}'.format(self.timestamp(), self.ERROR, text))
 
     @classmethod
     def warning(self, text):
-        return('{0}{1}'.format(self.WARNING, text))
+        return('{0}{1}{2}'.format(self.timestamp(), self.WARNING, text))
 
     @classmethod
     def info(self, text):
-        return('{0}{1}'.format(self.INFO, text))
+        return('{0}{1}{2}'.format(self.timestamp(), self.INFO, text))
 
     @classmethod
     def normal(self, text):
-        return('{0}{1}'.format(self.NORMAL, text))
+        return('{0}{1}{2}'.format(self.timestamp(), self.NORMAL, text))
 
     @classmethod
     def good(self, text):
-        return('{0}{1}'.format(self.GOOD, text))
+        return('{0}{1}{2}'.format(self.timestamp(), self.GOOD, text))
 
 def loggable(fn):
     def wrapper(*args):

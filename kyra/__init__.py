@@ -1,18 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#  _                    
-# | |                   
-# | | ___   _ _ __ __ _ 
-# | |/ / | | | '__/ _` |
-# |   <| |_| | | | (_| |
-# |_|\_\\__, |_|  \__,_|
-#    	__/ |          
-#      |___/           
-
 __title__ = 'kyra'
-__version__ = '0.0.1'
-__author__ = '@c0ding'
+__version__ = '0.1'
+__author__ = 'Martin Simon <me@martinsimon.me>'
 __repo__ = 'https://github.com/c0ding/kyra'
 __license__ = 'Apache v2.0 License'
 
