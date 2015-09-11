@@ -5,9 +5,9 @@ from distutils.core import setup
 
 setup(
     name = 'kyra',
-    version = '0.1',
-    url = 'https://github.com/c0ding/kyra',
-    download_url = 'https://github.com/c0ding/kyra/archive/master.zip',
+    version = '0.1.1',
+    url = 'https://github.com/mrsmn/kyra',
+    download_url = 'https://github.com/mrsmn/kyra/archive/master.zip',
     author = 'Martin Simon <me@martinsimon.me>',
     author_email = 'me@martinsimon.me',
     license = 'Apache v2.0 License',

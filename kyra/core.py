@@ -4,9 +4,9 @@
 from datetime import datetime
 
 __title__ = 'kyra'
-__version__ = '0.1'
+__version__ = '0.1.1'
 __author__ = 'Martin Simon <me@martinsimon.me>'
-__repo__ = 'https://github.com/c0ding/kyra'
+__repo__ = 'https://github.com/mrsmn/kyra'
 __license__ = 'Apache v2.0 License'
 
 class Logger(object):
@@ -19,34 +19,34 @@ class Logger(object):
     FUNCTION = '{0}{1}'.format('\033[95m[FUNCTION]\033[0m', ' :: ')
     
     @staticmethod
-    def timestamp():
+    def __timestamp():
         time_now = datetime.now()
         time_ordered = datetime.strftime(time_now, '%d-%m-%Y %H:%M:%S')
         return('{0}{1}'.format(time_ordered, ' :: '))
 
     @classmethod
     def function_call(self, fn, retval, *args):
-        print('{0}{1}{2}{3}{4}{5}'.format(self.timestamp(), self.FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+        print('{0}{1}{2}{3}{4}{5}'.format(self.__timestamp(), self.FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
 
     @classmethod
     def error(self, text):
-        return('{0}{1}{2}'.format(self.timestamp(), self.ERROR, text))
+        return('{0}{1}{2}'.format(self.__timestamp(), self.ERROR, text))
 
     @classmethod
     def warning(self, text):
-        return('{0}{1}{2}'.format(self.timestamp(), self.WARNING, text))
+        return('{0}{1}{2}'.format(self.__timestamp(), self.WARNING, text))
 
     @classmethod
     def info(self, text):
-        return('{0}{1}{2}'.format(self.timestamp(), self.INFO, text))
+        return('{0}{1}{2}'.format(self.__timestamp(), self.INFO, text))
 
     @classmethod
     def normal(self, text):
-        return('{0}{1}{2}'.format(self.timestamp(), self.NORMAL, text))
+        return('{0}{1}{2}'.format(self.__timestamp(), self.NORMAL, text))
 
     @classmethod
     def good(self, text):
-        return('{0}{1}{2}'.format(self.timestamp(), self.GOOD, text))
+        return('{0}{1}{2}'.format(self.__timestamp(), self.GOOD, text))
 
 def loggable(fn):
     def wrapper(*args):

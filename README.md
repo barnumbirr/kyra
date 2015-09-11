@@ -1,7 +1,6 @@
 <h1><img src="https://raw.githubusercontent.com/c0ding/kyra/master/doc/kyra.png" height=55 alt="kyra" title="kyra"> kyra</h1>
 
 [![PyPi Version](http://img.shields.io/pypi/v/kyra.svg)](https://pypi.python.org/pypi/kyra/)   [![Downloads](http://img.shields.io/pypi/dm/kyra.svg)](https://pypi.python.org/pypi/kyra/)
-[![Code Health](https://landscape.io/github/c0ding/kyra/master/landscape.svg)](https://landscape.io/github/c0ding/kyra/master)
 
 **kyra** is a small logging library written in Python I made for my own use.
 
