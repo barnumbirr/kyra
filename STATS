@@ -1,25 +1,25 @@
-  
+
    Analyzing: https://github.com/mrsmn/kyra/master/kyra/core.py
 
-                  Total Lines: 56
+                  Total Lines: 50
 
-                   Code Lines: 43 (76.7857%)
-                  Blank Lines: 12 (21.4285%)
+                   Code Lines: 37 (74.0%)
+                  Blank Lines: 12 (24.0%)
 
-                Comment Lines: 1 (1.78571%)
+                Comment Lines: 1 (2.0%)
              Doc String Lines: 0 (0.0%)
               Inline Comments: 1
                   Doc Strings: 0
                Total Comments: 2
 
-            Longest Code Line: 67
+            Longest Code Line: 74
            Shortest Code Line: 14 [return wrapper]
 
          Longest Comment Line: 23
         Shortest Comment Line: 23 [# -*- coding: utf-8 ...]
 
                       Imports: 1
-                    Functions: 9
+                    Functions: 10
                       Classes: 1
                 If Statements: 0
                Try Statements: 0
