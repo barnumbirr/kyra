@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 from datetime import datetime
 
 __title__ = 'kyra'
@@ -12,62 +13,62 @@ __license__ = 'Apache v2.0 License'
 class Logger(object):
 
     def __init__(self, filename=None):
-        self.filename = filename
-        self.ERROR = '{0}'.format('\033[91m[ERROR]\033[0m :: ')
-        self.WARNING = '{0}'.format('\033[93m[WARNING]\033[0m :: ')
-        self.INFO = '{0}'.format('\033[94m[INFO]\033[0m :: ')
-        self.NORMAL = '{0}'.format('\033[0m[NORMAL]\033[0m :: ')
-        self.GOOD = '{0}'.format('\033[92m[GOOD]\033[0m :: ')
-        self.FUNCTION = '{0}{1}'.format('\033[95m[FUNCTION]\033[0m', ' :: ')
+        self._filename = filename
+        self._ERROR = '{0}'.format('\033[91m[ERROR]\033[0m :: ')
+        self._WARNING = '{0}'.format('\033[93m[WARNING]\033[0m :: ')
+        self._INFO = '{0}'.format('\033[94m[INFO]\033[0m :: ')
+        self._NORMAL = '{0}'.format('\033[0m[NORMAL]\033[0m :: ')
+        self._GOOD = '{0}'.format('\033[92m[GOOD]\033[0m :: ')
+        self._FUNCTION = '{0}{1}'.format('\033[95m[FUNCTION]\033[0m', ' :: ')
         
-    def __write(self, filename, content):
-        with open(filename, 'a') as f:
+    def _write(self, filename, content):
+        with open(os.path.abspath(filename), 'a') as f:
             f.write('{0}{1}'.format(content, '\n'))
     
-    def __formatter(self, error, text):
-        return('{0}{1}{2}'.format(self.__timestamp(), error, text))
+    def _formatter(self, error, msg):
+        return('{0}{1}{2}'.format(self._timestamp(), error, msg))
 
-    def __timestamp(self):
-        time_now = datetime.now()
-        time_ordered = datetime.strftime(time_now, '%d-%m-%Y %H:%M:%S')
-        return('{0}{1}'.format(time_ordered, ' :: '))
+    def _timestamp(self):
+        t_current = datetime.now()
+        t_ordered = datetime.strftime(t_current, '%d-%m-%Y %H:%M:%S')
+        return('{0}{1}'.format(t_ordered, ' :: '))
 
-    def function_call(self, fn, retval, *args):
-        print('{0}{1}{2}{3}{4}{5}'.format(self.__timestamp(), self.FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+    def _function_call(self, fn, retval, *args):
+        print('{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
 
-    def error(self, text):
-        if self.filename != None:
-            self.__write(self.filename, self.__formatter(self.ERROR, text))
+    def error(self, msg):
+        if self._filename != None:
+            self._write(self._filename, self._formatter(self._ERROR, msg))
         else:
-            return(self.__formatter(self.ERROR, text))
+            return(self._formatter(self._ERROR, msg))
 
-    def warning(self, text):
-        if self.filename != None:
-            self.__write(self.filename, self.__formatter(self.WARNING, text))
+    def warning(self, msg):
+        if self._filename != None:
+            self._write(self._filename, self._formatter(self._WARNING, msg))
         else:
-            return(self.__formatter(self.WARNING, text))
+            return(self._formatter(self._WARNING, msg))
 
-    def info(self, text):
-        if self.filename != None:
-            self.__write(self.filename, self.__formatter(self.INFO, text))
+    def info(self, msg):
+        if self._filename != None:
+            self._write(self._filename, self._formatter(self._INFO, msg))
         else:
-            return(self.__formatter(self.INFO, text))
+            return(self._formatter(self._INFO, msg))
 
-    def normal(self, text):
-        if self.filename != None:
-            self.__write(self.filename, self.__formatter(self.NORMAL, text))
+    def normal(self, msg):
+        if self._filename != None:
+            self._write(self._filename, self._formatter(self._NORMAL, msg))
         else:
-            return(self.__formatter(self.NORMAL, text))
+            return(self._formatter(self._NORMAL, msg))
 
-    def good(self, text):
-        if self.filename != None:
-            self.__write(self.filename, self.__formatter(self.GOOD, text))
+    def good(self, msg):
+        if self._filename != None:
+            self._write(self._filename, self._formatter(self._GOOD, msg))
         else:
-            return(self.__formatter(self.GOOD, text))
+            return(self._formatter(self._GOOD, msg))
 
 def loggable(fn):
     def wrapper(*args):
         return_value = fn(*args)
-        Logger().function_call(fn, return_value, args)
+        Logger()._function_call(fn, return_value, args)
         return return_value
     return wrapper
