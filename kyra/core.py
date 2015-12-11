@@ -20,11 +20,11 @@ class Logger(object):
         self._NORMAL = '{0}'.format('\033[0m[NORMAL]\033[0m :: ')
         self._GOOD = '{0}'.format('\033[92m[GOOD]\033[0m :: ')
         self._FUNCTION = '{0}{1}'.format('\033[95m[FUNCTION]\033[0m', ' :: ')
-        
+
     def _write(self, filename, content):
         with open(os.path.abspath(filename), 'a') as f:
             f.write('{0}{1}'.format(content, '\n'))
-    
+
     def _formatter(self, error, msg):
         return('{0}{1}{2}'.format(self._timestamp(), error, msg))
 
@@ -34,7 +34,10 @@ class Logger(object):
         return('{0}{1}'.format(t_ordered, ' :: '))
 
     def _function_call(self, fn, retval, *args):
-        print('{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+        if self._filename != None:
+            self._write(self._filename, '{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+        else:
+            print('{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
 
     def error(self, msg):
         if self._filename != None:
