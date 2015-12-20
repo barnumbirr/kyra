@@ -14,11 +14,11 @@ class Logger(object):
         self._NORMAL = '{0}'.format('\033[0m[NORMAL]\033[0m :: ')
         self._GOOD = '{0}'.format('\033[92m[GOOD]\033[0m :: ')
         self._FUNCTION = '{0}{1}'.format('\033[95m[FUNCTION]\033[0m', ' :: ')
-        
+
     def _write(self, filename, content):
         with open(os.path.abspath(filename), 'a') as f:
             f.write('{0}{1}'.format(content, '\n'))
-    
+
     def _formatter(self, error, msg):
         return('{0}{1}{2}'.format(self._timestamp(), error, msg))
 
