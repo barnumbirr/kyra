@@ -21,14 +21,14 @@ or install from PyPi
 # -*- coding: utf-8 -*-
 
 from kyra import Logger
-from kyra import loggable
 
-@loggable
+log = Logger()
+# An absolute path can be passed to Logger() to log to a file.
+
+@log.loggable
 def sum(a, b):
    return a+b
 sum(2, 4)
-
-log = Logger()
 
 print log.error('This tests the ERROR logging call.')
 

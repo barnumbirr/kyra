@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
     name = 'kyra',
-    version = '0.2',
+    version = '0.3',
     url = 'https://github.com/mrsmn/kyra',
     download_url = 'https://github.com/mrsmn/kyra/archive/master.zip',
     author = 'Martin Simon <me@martinsimon.me>',
