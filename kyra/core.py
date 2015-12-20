@@ -4,12 +4,6 @@
 import os
 from datetime import datetime
 
-__title__ = 'kyra'
-__version__ = '0.2'
-__author__ = 'Martin Simon <me@martinsimon.me>'
-__repo__ = 'https://github.com/mrsmn/kyra'
-__license__ = 'Apache v2.0 License'
-
 class Logger(object):
 
     def __init__(self, filename=None):
@@ -34,7 +28,10 @@ class Logger(object):
         return('{0}{1}'.format(t_ordered, ' :: '))
 
     def _function_call(self, fn, retval, *args):
-        print('{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+        if self._filename != None:
+            self._write(self._filename, '{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
+        else:
+            print('{0}{1}{2}{3}{4}{5}'.format(self._timestamp(), self._FUNCTION, fn.__name__, retval, ' returned ', str(*args)))
 
     def error(self, msg):
         if self._filename != None:
@@ -66,9 +63,9 @@ class Logger(object):
         else:
             return(self._formatter(self._GOOD, msg))
 
-def loggable(fn):
-    def wrapper(*args):
-        return_value = fn(*args)
-        Logger()._function_call(fn, return_value, args)
-        return return_value
-    return wrapper
+    def decorator(self, fn):
+        def wrapper(*args):
+            return_value = fn(*args)
+            self._function_call(fn, return_value, args)
+            return return_value
+        return wrapper
