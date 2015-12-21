@@ -25,7 +25,7 @@ from kyra import Logger
 log = Logger()
 # An absolute path can be passed to Logger() to log to a file.
 
-@log.loggable
+@log.decorator
 def sum(a, b):
    return a+b
 sum(2, 4)
