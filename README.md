@@ -13,7 +13,7 @@ From source use
 or install from PyPi
 
       $ pip install kyra
-    
+
 ## Usage:
 
 ```python
@@ -38,7 +38,7 @@ print log.error('This tests the ERROR logging call.')
 
 ```
   Apache v2.0 License
-  Copyright 2014-2015 Martin Simon
+  Copyright 2014-2017 Martin Simon
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
     name = 'kyra',
-    version = '0.3',
+    version = '0.3.1',
     url = 'https://github.com/mrsmn/kyra',
     download_url = 'https://github.com/mrsmn/kyra/archive/master.zip',
     author = 'Martin Simon <me@martinsimon.me>',
@@ -13,6 +13,6 @@ setup(
     license = 'Apache v2.0 License',
     packages = ['kyra'],
     description = 'Small logging libray I made for my own use.',
-    long_description = file('README.md','r').read(),
+    long_description = open('README.md','r').read(),
     keywords = ['logging'],
 )
