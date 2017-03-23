@@ -37,31 +37,31 @@ class Logger(object):
         if self._filename != None:
             self._write(self._filename, self._formatter(self._ERROR, msg))
         else:
-            return(self._formatter(self._ERROR, msg))
+            print(self._formatter(self._ERROR, msg))
 
     def warning(self, msg):
         if self._filename != None:
             self._write(self._filename, self._formatter(self._WARNING, msg))
         else:
-            return(self._formatter(self._WARNING, msg))
+            print(self._formatter(self._WARNING, msg))
 
     def info(self, msg):
         if self._filename != None:
             self._write(self._filename, self._formatter(self._INFO, msg))
         else:
-            return(self._formatter(self._INFO, msg))
+            print(self._formatter(self._INFO, msg))
 
     def normal(self, msg):
         if self._filename != None:
             self._write(self._filename, self._formatter(self._NORMAL, msg))
         else:
-            return(self._formatter(self._NORMAL, msg))
+            print(self._formatter(self._NORMAL, msg))
 
     def good(self, msg):
         if self._filename != None:
             self._write(self._filename, self._formatter(self._GOOD, msg))
         else:
-            return(self._formatter(self._GOOD, msg))
+            print(self._formatter(self._GOOD, msg))
 
     def decorator(self, fn):
         def wrapper(*args):

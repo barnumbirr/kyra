@@ -30,7 +30,7 @@ def sum(a, b):
    return a+b
 sum(2, 4)
 
-print log.error('This tests the ERROR logging call.')
+log.error('This tests the ERROR logging call.')
 
 ```
 
